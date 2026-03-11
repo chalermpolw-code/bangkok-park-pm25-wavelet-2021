@@ -1,0 +1,9 @@
+park_id,park_name,current_status,current_selected_name,current_selected_area_m2,suggested_action,chosen_rank,notes
+3,สวนจตุจักร,OK_NEAREST_CANDIDATE,สวนจตุจักร,253560.0867,CHECK,1,
+9,สวนพระนคร,OK_CONTAINS_POINT,สวนพระนคร,81794.68056,LIKELY_OK,,
+11,สวนลุมพินี,OK_CONTAINS_POINT,สวนลุมพินี,523759.1704,LIKELY_OK,,
+12,สวนวชิรเบญจทัศ,OK_CONTAINS_POINT,สวนวชิรเบญจทัศ,576482.6027,LIKELY_OK,,
+13,สวนสมเด็จพระนางเจ้าสิริกิติ์ฯ,OK_CONTAINS_POINT,สวนสมเด็จพระนางเจ้าสิริกิติ์ฯ,318929.7341,LIKELY_OK,,
+16,สวนหนองจอก,OK_NEAREST_CANDIDATE,สวนหนองจอก,58157.43258,CHECK,1,
+18,สวนหลวง ร.9,OK_NEAREST_CANDIDATE,สวนกล,1982.657678,FIX_REQUIRED,2,
+20,สวนเสรีไทย,OK_CONTAINS_POINT,สวนเสรีไทย,112727.4653,LIKELY_OK,,
