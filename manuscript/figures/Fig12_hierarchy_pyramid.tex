@@ -1,0 +1,134 @@
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[font=\sffamily]
+
+% =========================
+% Color Definitions
+% =========================
+\colorlet{col1}{blue!18}
+\colorlet{col2}{green!18}
+\colorlet{col3}{teal!22}
+\colorlet{col4}{gray!20}
+
+\colorlet{line1}{blue!60!black}
+\colorlet{line2}{green!50!black}
+\colorlet{line3}{teal!70!black}
+\colorlet{line4}{gray!70!black}
+
+% =========================
+% Pyramid Geometry
+% =========================
+\def\W{9.5}   % Slightly widened base to easily fit the \normalsize text
+\def\H{9.6}   % Total height
+\def\CX{-3.0} % Center X of pyramid to balance the boxes on the right
+
+\coordinate (BL) at (\CX-\W/2, 0);
+\coordinate (BR) at (\CX+\W/2, 0);
+\coordinate (TOP) at (\CX, \H);
+
+% Y-coordinates of slice boundaries
+\def\yA{2.4}
+\def\yB{4.8}
+\def\yC{7.2}
+
+% Calculate coordinates on the edges
+\coordinate (L1) at ($(BL)!\yA/\H!(TOP)$);
+\coordinate (R1) at ($(BR)!\yA/\H!(TOP)$);
+\coordinate (L2) at ($(BL)!\yB/\H!(TOP)$);
+\coordinate (R2) at ($(BR)!\yB/\H!(TOP)$);
+\coordinate (L3) at ($(BL)!\yC/\H!(TOP)$);
+\coordinate (R3) at ($(BR)!\yC/\H!(TOP)$);
+
+% =========================
+% Filled layers & Borders
+% =========================
+\fill[col1] (BL) -- (BR) -- (R1) -- (L1) -- cycle;
+\fill[col2] (L1) -- (R1) -- (R2) -- (L2) -- cycle;
+\fill[col3] (L2) -- (R2) -- (R3) -- (L3) -- cycle;
+\fill[col4] (L3) -- (R3) -- (TOP) -- cycle;
+
+% Internal layer borders
+\draw[white, line width=1.5pt] (L1) -- (R1);
+\draw[white, line width=1.5pt] (L2) -- (R2);
+\draw[white, line width=1.5pt] (L3) -- (R3);
+
+% Outer pyramid border
+\draw[black!60, line width=1pt] (BL) -- (BR) -- (TOP) -- cycle;
+
+% =========================
+% Box Styles
+% =========================
+\tikzset{
+    infobox/.style={
+        draw,
+        rounded corners=2.5pt,
+        line width=0.8pt,
+        fill=white,
+        align=left,
+        text width=4.5cm,
+        inner sep=6pt,
+        font=\footnotesize % Reduced to standard diagram font size
+    }
+}
+
+% =========================
+% Edge Connectors & Boxes
+% =========================
+\coordinate (M1) at ($(BR)!0.5!(R1)$);
+\coordinate (M2) at ($(R1)!0.5!(R2)$);
+\coordinate (M3) at ($(R2)!0.5!(R3)$);
+\coordinate (M4) at ($(R3)!0.5!(TOP)$);
+
+\def\boxX{2.2} % Left edge of all boxes
+
+% Box 1 (Mean)
+\node[infobox, draw=line1] (box1) at (\boxX, 1.2) [anchor=west] {
+    \textbf{Target domain:} attenuation\\[0.1cm]
+    \textbf{Relative role:} useful first-order signal
+};
+\draw[line1, line width=0.9pt] (M1) -- (box1.west);
+
+% Box 2 (Ring)
+\node[infobox, draw=line2] (box2) at (\boxX, 3.6) [anchor=west] {
+    \textbf{Target domain:} attenuation + coherence\\[0.1cm]
+    \textbf{Relative role:} broadest explanatory improvement
+};
+\draw[line2, line width=0.9pt] (M2) -- (box2.west);
+
+% Box 3 (Water)
+\node[infobox, draw=line3] (box3) at (\boxX, 6.0) [anchor=west] {
+    \textbf{Target domain:} coherence-focused\\[0.1cm]
+    \textbf{Relative role:} strong but narrower contribution
+};
+\draw[line3, line width=0.9pt] (M3) -- (box3.west);
+
+% Box 4 (Morphology)
+\node[infobox, draw=line4] (box4) at (\boxX, 8.4) [anchor=west] {
+    \textbf{Target domain:} structural support\\[0.1cm]
+    \textbf{Relative role:} secondary explanatory layer
+};
+\draw[line4, line width=0.9pt] (M4) -- (box4.west);
+
+% =========================
+% Internal Pyramid Labels
+% =========================
+\node[font=\normalsize\bfseries] at (\CX, 1.2) {Mean land-cover contrast};
+\node[font=\normalsize\bfseries] at (\CX, 3.6) {Ring-gradient structure};
+\node[font=\normalsize\bfseries] at (\CX, 6.0) {Water context};
+% Morphology is given a smaller font and lowered slightly to safely clear the borders
+\node[font=\scriptsize\bfseries] at (\CX, 8.1) {Morphology};
+
+% =========================
+% Grouping Brace
+% =========================
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},line width=1pt,black!70]
+(7.0, 0.4) -- (7.0, 4.4)
+node[midway, right=10pt, align=left, font=\small\bfseries, text width=2.8cm, color=black!85]
+{Dominant\\[2pt]land-cover\\[2pt]explanatory\\[2pt]base};
+
+\end{tikzpicture}%
+}
+\caption{Conceptual synthesis of the layered explanatory hierarchy identified in the Bangkok park--outside PM$_{2.5}$ wavelet analysis. Mean land-cover contrast provided a useful first-order signal, ring-gradient structure provided the broadest explanatory improvement across attenuation and coherence, water context contributed strong but narrower coherence-focused associations, and morphology acted as a secondary structural layer rather than a dominant control.}
+\label{fig:hierarchy_pyramid}
+\end{figure}

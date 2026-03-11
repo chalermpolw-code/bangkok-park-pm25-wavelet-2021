@@ -1,0 +1,66 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\usepackage{amsmath}
+\usepackage[authoryear,round]{natbib}
+\setcitestyle{aysep={,},yysep={;}}
+\usepackage[left]{lineno}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,decorations.pathreplacing}
+
+\definecolor{regimebroadband}{HTML}{E8F5E9}
+\definecolor{regimedecoupler}{HTML}{E3F2FD}
+\definecolor{regimeweak}{HTML}{FFF3E0}
+
+\begin{document}
+\linenumbers
+
+\begin{center}
+    {\LARGE \bfseries Wavelet-Based Timescale-Specific PM$_{2.5}$ Damping by Urban Green Parks: A Paired Inside--Outside Case Study in Bangkok, 2021\par}
+    \vspace{1em}
+    {\large Chalermpol Wangsomcholk\par}
+    \vspace{0.5em}
+    {Department of Environmental Engineering, Faculty of Engineering, Southeast Asia University, Bangkok, Thailand.\par}
+    \vspace{0.5em}
+    {\textit{Correspondence:} Chalermpol Wangsomcholk (\texttt{chalermpolw@sau.ac.th})\par}
+\end{center}
+
+\vspace{1.5em}
+
+\begin{abstract}
+Most studies evaluating the impact of urban parks on PM$_{2.5}$ rely on static comparisons of mean concentrations, which often fail to capture the complex temporal dynamics of urban air pollution. Such approaches cannot distinguish whether green infrastructure selectively modulates short-term spikes, multi-day episodes, or broader temporal rhythms. To address this gap, a continuous wavelet transform (CWT) framework was applied to paired hourly PM$_{2.5}$ time series from 20 park-interior and 50 district-level stations in Bangkok, Thailand, throughout 2021. This approach quantified timescale-specific attenuation (amplitude damping) and coherence (coupling) across five frequency bands spanning 2--6 h to 7--14 d. Following rigorous quality gating for hourly completeness and pairwise overlap ($\geq$97\% of the full-year record), eight Tier-A park--outside pairs were retained for defensible wavelet analysis. Across these pairs, attenuation was negative overall, indicating that parks damped PM$_{2.5}$ variability in aggregate despite a small number of shortest-band amplification cases. Damping was strongest at 6--18 h and multi-day scales, but the band pattern was not monotonic: the diurnal band was the least damped (about $-3.8$ dB median), the 2--6 h band was slightly more negative (about $-4.2$ dB median), and attenuation intensified to about $-8.0$ dB at 2--7 d. Wavelet coherence generally increased from short to longer timescales, reaching high values at the diurnal and 2--7 d bands before declining somewhat at 7--14 d, indicating that parks reduced fluctuation amplitude while still preserving part of the broader city-scale temporal rhythm. Combined attenuation--coherence patterns further revealed three distinct damping regimes: strong decouplers, moderate broadband dampers, and weak followers. These regimes were not explained by average greenness alone. Instead, a layered explanatory framework using Sentinel-2-derived land-cover contrasts, ring-gradient structure, water-related context, and park morphology suggested that annulus-based land-cover gradients provided the broadest explanatory improvement, whereas water-related metrics contributed strong but more targeted coherence-oriented signals. These findings suggest that urban park design should prioritize protected vegetated cores, stronger park-edge transitions, and reduced central hardscape pressure, rather than relying only on total green area, to strengthen PM$_{2.5}$ buffering at policy-relevant timescales.
+\end{abstract}
+
+\vspace{1.5em}
+
+\input{sections/introduction}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+\section*{Software and analysis environment}
+The main analysis was carried out in Python. Core packages included pandas, NumPy, matplotlib, SciPy, PyWavelets, GeoPandas, and Google Earth Engine for the remote-sensing feature extraction workflow.
+
+\section*{Data availability}
+Hourly PM$_{2.5}$ and meteorological observations were obtained from the Pollution Control Department (PCD), Ministry of Natural Resources and Environment (MONRE), Thailand, for Bangkok monitoring stations. Access to these data is subject to the policies of the data provider. Processed analysis outputs and derived summary tables used in this study are available from the author upon reasonable request.
+
+\section*{Funding}
+This research received no external funding.
+
+\section*{Conflicts of interest}
+The author declares no conflict of interest.
+
+\bibliographystyle{apalike}
+\bibliography{refs}
+
+\end{document}
