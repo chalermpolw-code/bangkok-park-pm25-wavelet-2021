@@ -1,18 +1,20 @@
-## Core definitions (locked)
-Inside PM2.5: I_p(t)  = park monitor time series (hourly, Bangkok time)
-Outside PM2.5: O_p(t) = primary district reference station for park’s district
+# Bangkok urban park PM2.5 wavelet analysis (2021)
 
-Anomaly: x'_p(t) = x_p(t) - baseline_p(t)  (baseline via STL or regression trend+seasonal)
+This repository contains manuscript source files, analysis scripts, and processed outputs supporting the manuscript:
 
-Wavelet: Morlet CWT on x'_p(t)
-Power: P_x,p(s,τ) = |W_x,p(s,τ)|^2
+**“Wavelet-Based Timescale-Specific PM2.5 Damping by Urban Green Parks: A Paired Inside–Outside Case Study in Bangkok, 2021”**
 
-Bands B_k (pre-declare): [fill later: e.g., 12h, 24h, 7d windows]
-Regimes g(t) (pre-declare): wet/dry, low/high wind, day/night, season (station primary; reanalysis robustness)
+## Repository contents
+- `manuscript/` — LaTeX manuscript source and compiled PDF
+- `src/` — analysis scripts used to generate wavelet, land-cover, water, morphology, and figure outputs
+- `wavelet_2021_summaries/` — attenuation and original wavelet summary tables
+- `wavelet_2021_cmor_final_summaries/` — final coherence summary tables using complex Morlet coherence
+- `landuse_2021/` — processed land-cover summary outputs
+- `morphology_2021/` — processed morphology summary outputs
+- `year_qc/` — annual quality-screening outputs
 
-Metric 1 (attenuation): A_p(k,g) = log( Pow_I,p(B_k,g) / Pow_O,p(B_k,g) )
-Reporting form: %Red_p(k,g) = 100*(1 - exp(A_p(k,g)))
+## Data note
+Raw hourly PM2.5 and meteorological observations were obtained from the Pollution Control Department (PCD), Ministry of Natural Resources and Environment (MONRE), Thailand, and may be subject to provider access policies. This repository provides processed analysis outputs used to support the manuscript results.
 
-Metric 2 (coherence): C_p(k,g) = mean of R^2_p(s,τ) over s∈B_k, τ∈g (exclude COI)
-
-- sites_parks_20_bkk_pm25.csv: 20 Bangkok park sensor locations (district + lat/lon), extracted from the installation-location PDF.
+## Reproducibility note
+The manuscript PDF is provided in `manuscript/`. The analysis scripts used to generate the processed outputs and manuscript figures are provided in `src/`.
